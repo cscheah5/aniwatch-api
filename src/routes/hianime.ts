@@ -10,8 +10,7 @@ const hianimeRouter = new Hono<{ Variables: AniwatchAPIVariables }>();
 hianimeRouter.get("/", (c) => c.redirect("/", 301));
 
 // /api/v2/hianime/home
-//hianimeRouter.get("/home", async (c) => {
-hianimeRouter.get("/", async (c) => {
+hianimeRouter.get("/home", async (c) => {
   const cacheConfig = c.get("CACHE_CONFIG");
 
   const data = await cache.getOrSet<HiAnime.ScrapedHomePage>(
